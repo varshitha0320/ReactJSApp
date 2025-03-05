@@ -1,21 +1,24 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const Login = ({ onLogin }) => {
+const Login = ({ setIsAuthenticated }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleLogin = () => {
-    if (email === "user@example.com" && password === "password") {
-      onLogin(true);
+    if (email === "varshithan67varshi@gmail.com" && password === "varshitha") {
+      setIsAuthenticated(true);
+      navigate("/products"); 
     } else {
-      setError("Invalid email or password");
+      setError("Invalid email or password.");
     }
   };
 
   return (
     <div style={{ textAlign: "center", padding: "20px" }}>
-      <h2>Login Page</h2>
+      <h2>Login</h2>
       <input
         type="email"
         placeholder="Email"
